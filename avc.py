@@ -6,9 +6,9 @@ app = Flask(__name__)
 def handle_command():
     data = request.json
     command = data.get("command")
-    if command == "play_video":
+    if command == "Routing Action":
         # Example response
-        return jsonify({"status": "playing", "message": "Video started playing"})
+        return jsonify({"status": "playing", "component": "Received})
     else:
         return jsonify({"status": "error", "message": "Unknown command"})
 

@@ -27,7 +27,7 @@ def send_command_to_avc(avc_ip, avc_port, command):
     """
     try:
         # Use TCP or HTTP for communication
-        response = requests.post(f"http://{avc_ip}:{avc_port}/command", json={"command": command})
+        response = requests.post(f"http://{host_ip}:{avc_port}/command", json={"command": command})
         if response.status_code == 200:
             print("Response from AVC:", response.json())
             return response.json()
@@ -47,7 +47,7 @@ if __name__ == "__main__":
 
     # Communicate with the AVC of a Linux computer
     avc_ip = "192.168.1.100"  # Replace with AVC IP address
-    avc_port = 8080           # Replace with AVC port
-    command = "play_video"    # Replace with your desired command
-    avc_response = send_command_to_avc(avc_ip, avc_port, command)
+    avc_port = 22           # Replace with AVC port
+    command = "savant_send"    # Replace with your desired command
+    avc_response = send_command_to_avc(avc_ip, avc_port, command, Routing, Action)
     print("AVC Response:", avc_response)
